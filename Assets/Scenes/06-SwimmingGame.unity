@@ -517,6 +517,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2563236534695395268, guid: 6ee34bc3a6e31ed428af6e67c56c6c4f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3110674630402998399, guid: 6ee34bc3a6e31ed428af6e67c56c6c4f, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -559,6 +563,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6669413119086306654, guid: 6ee34bc3a6e31ed428af6e67c56c6c4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173134279516359948, guid: 6ee34bc3a6e31ed428af6e67c56c6c4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153313923510696123, guid: 6ee34bc3a6e31ed428af6e67c56c6c4f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
