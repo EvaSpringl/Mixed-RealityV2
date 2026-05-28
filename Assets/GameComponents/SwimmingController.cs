@@ -36,10 +36,8 @@ public class SwimmingController : MonoBehaviour
     private InputDevice leftController;
     private InputDevice rightController;
 
-    // Einhändiges Schwimmen: merken, ob nur eine Hand aktiv war
     private bool singleHandSwimming;
 
-    // Wandkontakt
     private bool leftHandOnWall;
     private bool rightHandOnWall;
     private Vector3 leftWallNormal;
@@ -86,15 +84,18 @@ public class SwimmingController : MonoBehaviour
         if (!leftController.isValid || !rightController.isValid)
             TryInitializeControllers();
 
-        leftController.TryGetFeatureValue(CommonUsages.gripButton, out bool leftGrip);
-        rightController.TryGetFeatureValue(CommonUsages.gripButton, out bool rightGrip);
+        // ── Trigger statt Grip für Schwimmen ──────────────────────────────
+        // triggerButton = Index-Finger-Taste (vorderer Trigger)
+        // gripButton    = mittlerer Finger (Grip/Grab) → bleibt frei für XRGrabInteractable
+        leftController.TryGetFeatureValue(CommonUsages.triggerButton, out bool leftTrigger);
+        rightController.TryGetFeatureValue(CommonUsages.triggerButton, out bool rightTrigger);
 
-        DetectWallContact(leftGrip, rightGrip);
+        DetectWallContact(leftTrigger, rightTrigger);
 
-        bool handledByWall = HandleWallInteraction(leftGrip, rightGrip);
+        bool handledByWall = HandleWallInteraction(leftTrigger, rightTrigger);
 
         if (!handledByWall)
-            HandleFreeSwimming(leftGrip, rightGrip);
+            HandleFreeSwimming(leftTrigger, rightTrigger);
 
         ApplyResistanceForce();
         ApplyTurning();
@@ -104,26 +105,18 @@ public class SwimmingController : MonoBehaviour
     // DREHEN
     // -----------------------------------------------------------------------
 
-    /// <summary>
-    /// Dreht das XR Origin (= Spieler-Blick) sanft in die horizontale
-    /// Bewegungsrichtung. Greift nur beim einhändigen Schwimmen.
-    /// </summary>
     private void ApplyTurning()
     {
         if (!singleHandSwimming) return;
 
-        // Nur horizontale Komponente der aktuellen Geschwindigkeit
         Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         if (flatVelocity.magnitude < turnVelocityThreshold) return;
 
-        // Zielrotation: in die Bewegungsrichtung schauen (invertiert, da Schwimmkraft = -velocity)
         Quaternion targetRotation = Quaternion.LookRotation(-flatVelocity, Vector3.up);
 
-        // Nur die Y-Achse des XR Origin drehen; Pitch/Roll bleiben unberührt
-        float currentY  = transform.eulerAngles.y;
-        float targetY   = targetRotation.eulerAngles.y;
-        float newY      = Mathf.MoveTowardsAngle(currentY, targetY,
-                              turnSpeed * Time.fixedDeltaTime);
+        float currentY = transform.eulerAngles.y;
+        float targetY  = targetRotation.eulerAngles.y;
+        float newY     = Mathf.MoveTowardsAngle(currentY, targetY, turnSpeed * Time.fixedDeltaTime);
 
         transform.rotation = Quaternion.Euler(0f, newY, 0f);
     }
@@ -132,30 +125,27 @@ public class SwimmingController : MonoBehaviour
     // FREIES SCHWIMMEN
     // -----------------------------------------------------------------------
 
-    private void HandleFreeSwimming(bool leftGrip, bool rightGrip)
+    private void HandleFreeSwimming(bool leftTrigger, bool rightTrigger)
     {
         singleHandSwimming = false;
-        if (!leftGrip && !rightGrip) return;
+        if (!leftTrigger && !rightTrigger) return;
 
         leftController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 leftVel);
         rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 rightVel);
 
         Vector3 localVelocity;
 
-        if (leftGrip && rightGrip)
+        if (leftTrigger && rightTrigger)
         {
-            // Beide Hände → volle Kraft, keine Zwangsdrehung
             localVelocity = (leftVel + rightVel) * -1f;
         }
-        else if (leftGrip)
+        else if (leftTrigger)
         {
-            // Nur linke Hand → halbe Kraft, Drehung einschalten
             localVelocity = leftVel * -0.5f;
             singleHandSwimming = true;
         }
         else
         {
-            // Nur rechte Hand → halbe Kraft, Drehung einschalten
             localVelocity = rightVel * -0.5f;
             singleHandSwimming = true;
         }
@@ -178,21 +168,21 @@ public class SwimmingController : MonoBehaviour
     // WAND-INTERAKTION
     // -----------------------------------------------------------------------
 
-    private void DetectWallContact(bool leftGrip, bool rightGrip)
+    private void DetectWallContact(bool leftActive, bool rightActive)
     {
         leftHandOnWall  = false;
         rightHandOnWall = false;
 
-        if (leftGrip && leftHandTransform != null &&
+        if (leftActive && leftHandTransform != null &&
             Physics.SphereCast(leftHandTransform.position, 0.08f,
                 leftHandTransform.forward, out RaycastHit lHit,
                 handReachDistance, wallLayerMask))
         {
-            leftHandOnWall  = true;
-            leftWallNormal  = lHit.normal;
+            leftHandOnWall = true;
+            leftWallNormal = lHit.normal;
         }
 
-        if (rightGrip && rightHandTransform != null &&
+        if (rightActive && rightHandTransform != null &&
             Physics.SphereCast(rightHandTransform.position, 0.08f,
                 rightHandTransform.forward, out RaycastHit rHit,
                 handReachDistance, wallLayerMask))
@@ -202,12 +192,12 @@ public class SwimmingController : MonoBehaviour
         }
     }
 
-    private bool HandleWallInteraction(bool leftGrip, bool rightGrip)
+    private bool HandleWallInteraction(bool leftActive, bool rightActive)
     {
         bool any = false;
 
-        if (leftGrip  && leftHandOnWall)  { ApplyWallForce(leftController,  leftWallNormal);  any = true; }
-        if (rightGrip && rightHandOnWall) { ApplyWallForce(rightController, rightWallNormal); any = true; }
+        if (leftActive  && leftHandOnWall)  { ApplyWallForce(leftController,  leftWallNormal);  any = true; }
+        if (rightActive && rightHandOnWall) { ApplyWallForce(rightController, rightWallNormal); any = true; }
 
         return any;
     }
@@ -221,8 +211,8 @@ public class SwimmingController : MonoBehaviour
 
         if (worldVel.sqrMagnitude < 0.001f) return;
 
-        float     pushComponent = Vector3.Dot(worldVel, wallNormal);
-        Vector3   parallelVel   = worldVel - wallNormal * pushComponent;
+        float   pushComponent = Vector3.Dot(worldVel, wallNormal);
+        Vector3 parallelVel   = worldVel - wallNormal * pushComponent;
 
         if (pushComponent > deadZone)
         {
