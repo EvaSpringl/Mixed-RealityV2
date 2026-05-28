@@ -3,15 +3,8 @@ using UnityEngine.Events;
 using TMPro;
 
 /// <summary>
-/// Wird auf das Taschen-GameObject gelegt, das am XR Origin (Gürtel des Spielers)
-/// befestigt ist. Braucht einen Trigger-Collider, der die Öffnung der Tasche darstellt.
-///
-/// Setup in Unity:
-///   1. Leeres GameObject als Kind von XR Origin erstellen, z.B. "Bag"
-///   2. Position: ca. (0.3, -0.3, 0) → rechte Hüfte des Spielers
-///   3. Collider (z.B. SphereCollider, Radius 0.15) hinzufügen, "Is Trigger" = true
-///   4. Dieses Script hinzufügen
-///   5. Optional: TextMeshPro-Text für den Punktestand reinziehen
+/// Verwaltet die Sammeltasche des Spielers.
+/// Bei Spielende wird GameManager.OnGameComplete() aufgerufen.
 /// </summary>
 public class BagController : MonoBehaviour
 {
@@ -24,10 +17,8 @@ public class BagController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
 
     [Header("Events")]
-    [Tooltip("Wird aufgerufen wenn ein Objekt eingesammelt wird")]
+    [Tooltip("Wird aufgerufen wenn ein Objekt eingesammelt wird (int = aktueller Stand)")]
     public UnityEvent<int> onItemCollected;
-    [Tooltip("Wird aufgerufen wenn alle Objekte eingesammelt wurden")]
-    public UnityEvent onGameComplete;
 
     private int collectedCount = 0;
 
@@ -43,27 +34,18 @@ public class BagController : MonoBehaviour
     {
         collectedCount++;
 
-        // Objekt loslassen falls noch gehalten, dann deaktivieren
-        // (XRGrabInteractable hat keine einfache "ForceRelease"-API von außen,
-        //  daher deaktivieren wir den Interactable kurz, was automatisch loslässt)
-        var grabInteractable = item.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
-        if (grabInteractable != null)
-            grabInteractable.enabled = false;
+        // XRGrabInteractable deaktivieren damit das Objekt losgelassen wird
+        var grab = item.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        if (grab != null) grab.enabled = false;
 
-        // Objekt aus der Welt entfernen
         Destroy(item);
-
         UpdateUI();
 
-        // Event feuern (z.B. für Sound, Partikel, Haptics)
         onItemCollected?.Invoke(collectedCount);
 
         // Gewonnen?
         if (collectedCount >= requiredItems)
-        {
-            onGameComplete?.Invoke();
-            HandleGameComplete();
-        }
+            GameManager.Instance?.OnGameComplete();
     }
 
     private void UpdateUI()
@@ -72,21 +54,10 @@ public class BagController : MonoBehaviour
             scoreText.text = $"{collectedCount} / {requiredItems}";
     }
 
-    private void HandleGameComplete()
-    {
-        Debug.Log("Alle Objekte eingesammelt! Spiel beendet.");
-        // Hier kann man z.B. eine Endscreen-UI einblenden oder die Scene wechseln:
-        // SceneManager.LoadScene("EndScreen");
-        // Oder einfach eine kurze Verzögerung:
-        // StartCoroutine(LoadEndScreen());
-    }
+    public int CollectedCount => collectedCount;
+    public int RequiredItems  => requiredItems;
+    public bool IsComplete    => collectedCount >= requiredItems;
 
-    // Öffentlicher Getter, falls andere Scripts den Score brauchen
-    public int CollectedCount  => collectedCount;
-    public int RequiredItems   => requiredItems;
-    public bool IsComplete     => collectedCount >= requiredItems;
-
-    // Gizmo: macht die Trigger-Zone im Editor sichtbar
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0f, 1f, 0.5f, 0.3f);
