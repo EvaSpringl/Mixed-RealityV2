@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 035763e3d96daff43b5e60e01c696ebe
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364112
+  packageName: 'Coral Reef and Seaweed: Underwater Environment Assets Pack'
+  packageVersion: 1.0
+  assetPath: Assets/RSG_UnderWater_Pack/FPS/HDRP/Materials/Corals&Seaweed/M_FPS_Shell_Blue.mat
+  uploadId: 870416

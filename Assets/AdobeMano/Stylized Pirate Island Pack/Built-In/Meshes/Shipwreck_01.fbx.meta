@@ -1,0 +1,413 @@
+fileFormatVersion: 2
+guid: 936896f16033742458f4257dae5e769a
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Barrel Base
+    second: {fileID: 2100000, guid: 4d1164a09fcbed94a80f9dd221f8dea4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Barrel Metal
+    second: {fileID: 2100000, guid: 2c0d22279bcf187428cdbd42d6e967a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cannon Wood
+    second: {fileID: 2100000, guid: ea37eb8519d082a49b78c2ffb9ecca51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cannon metal
+    second: {fileID: 2100000, guid: 7a7a89f7504e99942b26af09839ba9ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Columns
+    second: {fileID: 2100000, guid: 58e966b9c0b682e4989413bdbcfabf0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rails
+    second: {fileID: 2100000, guid: 57fa7190b8df01b489f8d7c4d36e300f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship Base
+    second: {fileID: 2100000, guid: a6933a386f21db2428144f6732a80d94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship Stairs
+    second: {fileID: 2100000, guid: 0da6dc72f5023b94da8434c0be994b20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship door
+    second: {fileID: 2100000, guid: 6014a21c5d3a3e74a96b5a3851c7aceb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wheel
+    second: {fileID: 2100000, guid: f6304d5000e46464abf0242b1d528f7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wood
+    second: {fileID: 2100000, guid: a519e02ef46c13f4ababbef149cba196, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship windows
+    second: {fileID: 2100000, guid: 4b2f3fbe06990e7469ff6a0c3c1700df, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel Base_BaseColor
+    second: {fileID: 2800000, guid: afc6abba36d8e9d4f9f184326a25b1d0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel Base_Metallic
+    second: {fileID: 2800000, guid: e8137be84f2769e43a3277b58fc06ea9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel Base_Normal
+    second: {fileID: 2800000, guid: 84b3afbce796e5d41b42653c8790058b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel Base_Roughness
+    second: {fileID: 2800000, guid: dbef858b8edccc845a3bc162b6189e5d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel Metal_BaseColor
+    second: {fileID: 2800000, guid: 0752752663322fb46bc02813ca2ad0df, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel Metal_Metallic
+    second: {fileID: 2800000, guid: aa7a8e12609a62c4fb50c15bf330bfc3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel Metal_Normal
+    second: {fileID: 2800000, guid: 0095dc54eb6c97b4c99f6cb445894ba3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel Metal_Roughness
+    second: {fileID: 2800000, guid: b798a457d1adcf34f9d866a275888f91, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cannon Wood_BaseColor
+    second: {fileID: 2800000, guid: 2bb93f2f170a73349a33bae73503d7ee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cannon Wood_Metallic
+    second: {fileID: 2800000, guid: ae901b508aed62f41b716412c08c83a9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cannon Wood_Normal
+    second: {fileID: 2800000, guid: 23d5ff810b27de949a831abdc25d1398, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cannon Wood_Roughness
+    second: {fileID: 2800000, guid: 9941d10b9ecfcd241a9e695890167c5b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cannon metal_BaseColor
+    second: {fileID: 2800000, guid: 8635579707e379846bddf2a8318d8b17, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cannon metal_Metallic
+    second: {fileID: 2800000, guid: 674bf7f7fd6786746a63e2b02ab3b9d7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cannon metal_Normal
+    second: {fileID: 2800000, guid: 13c79b55977db2a47b89cae11b51d09f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cannon metal_Roughness
+    second: {fileID: 2800000, guid: cd133814bf17d674480e19ac5270aaff, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Columns_BaseColor
+    second: {fileID: 2800000, guid: bbd2510bf8851eb4c9a2351932bf0961, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Columns_Metallic
+    second: {fileID: 2800000, guid: 746406a8256b6e94b8079788d70a8996, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Columns_Normal
+    second: {fileID: 2800000, guid: 29df7c2ed69be604096a7939e12ab594, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Columns_Roughness
+    second: {fileID: 2800000, guid: f84a826aeca00d74ea846e8a7f163c08, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rails_BaseColor
+    second: {fileID: 2800000, guid: 0d4f0178451750f479d5d994a5d5fa22, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rails_Metallic
+    second: {fileID: 2800000, guid: 6a5c504cb6b47bc4d8766486931e98c4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rails_Normal
+    second: {fileID: 2800000, guid: 843f9596616a37d4cb42336bdab95fc4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rails_Roughness
+    second: {fileID: 2800000, guid: 23305b49f6a2e7b45ba7c12119165c47, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship Base_01_BaseColor
+    second: {fileID: 2800000, guid: 7d024abc29783344890164fd7344e3da, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship Base_01_Metallic
+    second: {fileID: 2800000, guid: a81bb4f070002e143ae4b8a0a0da466d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship Base_01_Normal
+    second: {fileID: 2800000, guid: d89da486ca4560c43b0e297541df9a76, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship Base_01_Roughness
+    second: {fileID: 2800000, guid: 9c0fecfdf0ca935499a2119d9417aae8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship Stairs_BaseColor
+    second: {fileID: 2800000, guid: 57e40aeb72068e44694462094e844f38, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship Stairs_Metallic
+    second: {fileID: 2800000, guid: 1e1ac82214562fa418be6fa1022a37f1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship Stairs_Normal
+    second: {fileID: 2800000, guid: 101a061b362370a4d9a1fa93cd12b04d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship Stairs_Roughness
+    second: {fileID: 2800000, guid: 587ecdb2e73b13f438676b31fec80272, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship door_BaseColor
+    second: {fileID: 2800000, guid: ab380356c709fe64685e289e1a72ae66, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship door_Metallic
+    second: {fileID: 2800000, guid: a07cc1a01eab2f6488c053c92552525d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship door_Normal
+    second: {fileID: 2800000, guid: 9142294cc4e639b448ecc56ff7a3d02b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship door_Roughness
+    second: {fileID: 2800000, guid: dd9493d4dc2e77f488aeeb085732ebc3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wheel_BaseColor
+    second: {fileID: 2800000, guid: ef45ba6d168f73640a61f8a816f092d4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wheel_Metallic
+    second: {fileID: 2800000, guid: 856aefd4c6f5b7c4888e08f07057eacf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wheel_Normal
+    second: {fileID: 2800000, guid: e2a0dc7d06c9a2648aef175eb9f48f0d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wheel_Roughness
+    second: {fileID: 2800000, guid: 2dcd06bcd12503b4f906d2479b494b45, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wood_BaseColor
+    second: {fileID: 2800000, guid: f702f4ec714760b4ab69bb16197c4e66, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wood_Metallic
+    second: {fileID: 2800000, guid: 13013715f76ffe744a486f37cefbdb3f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wood_Normal
+    second: {fileID: 2800000, guid: 329a56c0e8b7f0845a9d0897a39f4f62, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship steering wood_Roughness
+    second: {fileID: 2800000, guid: 789ac3ec85f4ad9429650a6dc5c79cab, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship windows_BaseColor
+    second: {fileID: 2800000, guid: a0f32e887dafd8d478ab6acf35ab0ea0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship windows_Metallic
+    second: {fileID: 2800000, guid: ea5d87a99c243984e927bf8a85198a77, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship windows_Normal
+    second: {fileID: 2800000, guid: 99ff0813927109e46800c20fce4c621a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ship windows_Roughness
+    second: {fileID: 2800000, guid: fd863d4266c38804690197b3611a7ca6, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 336304
+  packageName: 3D Stylized Pirate Island Props Pack
+  packageVersion: 1.0
+  assetPath: Assets/AdobeMano/Stylized Pirate Island Pack/Built-In/Meshes/Shipwreck_01.fbx
+  uploadId: 798060

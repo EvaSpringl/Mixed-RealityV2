@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: ca4797c1d692a3a4a99d6e0628f870b2
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364112
+  packageName: 'Coral Reef and Seaweed: Underwater Environment Assets Pack'
+  packageVersion: 1.0
+  assetPath: Assets/RSG_UnderWater_Pack/FPS/HDRP/Shader/SG_WaterVegitation.shadergraph
+  uploadId: 870416
